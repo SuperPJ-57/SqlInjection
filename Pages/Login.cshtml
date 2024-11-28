@@ -4,21 +4,33 @@
     ViewData["Title"] = "Login";
 }
 
-<h2>Login</h2>
-
-<form method="post">
-    <div>
-        <label for="Username">Username:</label>
-        <input type="text" id="Username" name="Username" />
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Login</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="Username" class="form-label">Username</label>
+                            <input type="text" id="Username" name="Username" class="form-control" placeholder="Enter your username" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="Password" class="form-label">Password</label>
+                            <input type="password" id="Password" name="Password" class="form-control" placeholder="Enter your password" />
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
+                </div>
+            </div>
+            @if (Model.Message != null)
+            {
+                <div class="alert alert-danger mt-3 text-center">
+                    @Model.Message
+                </div>
+            }
+        </div>
     </div>
-    <div>
-        <label for="Password">Password:</label>
-        <input type="password" id="Password" name="Password" />
-    </div>
-    <button type="submit">Login</button>
-</form>
-
-@if (Model.Message != null)
-{
-    <p style="color: red;">@Model.Message</p>
-}
+</div>
